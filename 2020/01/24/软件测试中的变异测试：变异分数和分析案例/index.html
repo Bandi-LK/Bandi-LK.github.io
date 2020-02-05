@@ -30,8 +30,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.bandilab.net/iFoto/gallery/blog_image/nav_icon.png">
 <meta property="og:image" content="http://www.bandilab.net/iFoto/gallery/blog_image/mutation_analysis_process.png">
+<meta property="og:image" content="http://www.bandilab.net/iFoto/gallery/blog_image/Mutation_Score_func.png">
 <meta property="article:published_time" content="2020-01-24T04:54:24.000Z">
-<meta property="article:modified_time" content="2020-02-04T18:41:54.157Z">
+<meta property="article:modified_time" content="2020-02-05T16:42:41.233Z">
 <meta property="article:author" content="Bandi-LK">
 <meta property="article:tag" content="变异测试">
 <meta property="article:tag" content="软件测试">
@@ -208,7 +209,6 @@
 <li><a href="#变异分数：-Mutation-Score"> 变异分数： (Mutation Score:) </a></li>
 <li><a href="#变异测试的优点：-Advantages-of-Mutation-Testing"> 变异测试的优点： (Advantages of Mutation Testing:) </a></li>
 <li><a href="#变异测试的缺点：-Disadvantages-of-Mutation-Testing"> 变异测试的缺点： (Disadvantages of Mutation Testing:) </a></li>
-<li><a href="#结论：-Conclusion"> 结论： (Conclusion:) </a></li>
 </ul>
 <hr>
 <h4 id="变异测试是什么？-What-is-Mutation-Testing"><a href="#变异测试是什么？-What-is-Mutation-Testing" class="headerlink" title="变异测试是什么？(What is Mutation Testing?)"></a><strong>变异测试是什么？(What is Mutation Testing?)</strong></h4><p>变异测试是软件测试中的一种。变异测试对源代码中的语句进行变异（或修改），并检查测试用例是否可以检出错误。变异测试是一种主要应用于<a href="https://www.guru99.com/unit-testing-guide.html" target="_blank" rel="noopener">单元测试</a>的<a href="https://www.guru99.com/white-box-testing.html" target="_blank" rel="noopener">白盒测试</a>方法。而因为变异体程序的修改内容非常少，所以变异体程序相对于源程序不会改变程序整体目标（overall objective）。</p>
@@ -307,10 +307,26 @@
 <p><strong>条件变异：</strong> 更改条件以检查设计的错误。通常，我们会更改算术运算符来定位缺陷的位置。除了算术运算符，我们还可以更改所有的关系运算符和逻辑运算符（例如:AND, OR, NOT）<br><em>Decision Mutations: The decisions/conditions are changed to check for the design errors. Typically, one changes the arithmetic operators to locate the defects and also we can consider mutating all relational operators and logical operators (AND, OR , NOT)</em></p>
 <p><strong>值变异：</strong> 值变异是一种通过改变常量和变量值的方式，来检测程序中错误的方法。我们通常把一个值改大或是改小。最常见的策略是改变常量的值。<br><em>Value Mutations: An attempt to change the values to detect errors in the programs. We usually change one value to a much larger value or one value to a much smaller value. The most common strategy is to change the constants.</em></p>
 <hr>
-<h4 id="变异分数：-Mutation-Score"><a href="#变异分数：-Mutation-Score" class="headerlink" title="变异分数： (Mutation Score:)"></a><strong>变异分数： (Mutation Score:)</strong></h4><p><em>The mutation score is defined as the percentage of killed mutants with the total number of mutants.</em><br>Mutation Score = (Killed Mutants / Total number of Mutants) * 100% (换图片)</p>
-<p><em>Test cases are mutation adequate if the score is 100%. Experimental results have shown that mutation testing is an effective approach for measuring the adequacy of the test cases. But, the main drawback is that the high cost of generating the mutants and executing each test case against that mutant program.</em></p>
+<h4 id="变异分数：-Mutation-Score"><a href="#变异分数：-Mutation-Score" class="headerlink" title="变异分数： (Mutation Score:)"></a><strong>变异分数： (Mutation Score:)</strong></h4><p>变异分数是指杀死变异体的数量占总变异体数量的百分比。<br><em>The mutation score is defined as the percentage of killed mutants with the total number of mutants.</em></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://www.bandilab.net/iFoto/gallery/blog_image/Mutation_Score_func.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>如果变异分数为100%，则说明测试用例是充分变异的。 实验结果展示了变异测试是一种测量测试用例充分性（测试套件的完整性）的有效办法。但是，变异测试最主要的缺点是：生成变异体和对每一个变异体都执行测试用例的高成本。<br><em>Test cases are mutation adequate if the score is 100%. Experimental results have shown that mutation testing is an effective approach for measuring the adequacy of the test cases. But, the main drawback is that the high cost of generating the mutants and executing each test case against that mutant program.</em></p>
 <hr>
-<h4 id="变异测试的优点：-Advantages-of-Mutation-Testing"><a href="#变异测试的优点：-Advantages-of-Mutation-Testing" class="headerlink" title="变异测试的优点： (Advantages of Mutation Testing:)"></a><strong>变异测试的优点： (Advantages of Mutation Testing:)</strong></h4><p><em>Following are the advantages of Mutation Testing:</em></p>
+<h4 id="变异测试的优点：-Advantages-of-Mutation-Testing"><a href="#变异测试的优点：-Advantages-of-Mutation-Testing" class="headerlink" title="变异测试的优点： (Advantages of Mutation Testing:)"></a><strong>变异测试的优点： (Advantages of Mutation Testing:)</strong></h4><p>以下是变异测试的优点：</p>
+<ul>
+<li>能够使测试源程序的测试套件达到高覆盖率。</li>
+<li>该测试能够全面测试变异体程序。</li>
+<li>变异测试提高了软件开发人员的错误检出能力。</li>
+<li>这个方法可以发现源代码中的歧义，并且可以检测出源代码中的所有错误。</li>
+<li>客户可以得到一个最可靠和安全的系统。</li>
+</ul>
+<p><em>Following are the advantages of Mutation Testing:</em></p>
 <ul>
 <li><em>It is a powerful approach to attain high coverage of the source program.</em></li>
 <li><em>This testing is capable comprehensively testing the mutant program.</em></li>
@@ -319,7 +335,14 @@
 <li><em>Customers are benefited from this testing by getting a most reliable and stable system.</em></li>
 </ul>
 <hr>
-<h4 id="变异测试的缺点：-Disadvantages-of-Mutation-Testing"><a href="#变异测试的缺点：-Disadvantages-of-Mutation-Testing" class="headerlink" title="变异测试的缺点： (Disadvantages of Mutation Testing:)"></a><strong>变异测试的缺点： (Disadvantages of Mutation Testing:)</strong></h4><p><em>On the other side, the following are the disadvantages of Mutant testing:</em></p>
+<h4 id="变异测试的缺点：-Disadvantages-of-Mutation-Testing"><a href="#变异测试的缺点：-Disadvantages-of-Mutation-Testing" class="headerlink" title="变异测试的缺点： (Disadvantages of Mutation Testing:)"></a><strong>变异测试的缺点： (Disadvantages of Mutation Testing:)</strong></h4><p>另一方面，以下是变异测试的缺点：</p>
+<ul>
+<li>因为变异测试需要生成很多变异体，所以变异测试耗费很大，时间消耗也很多。（消耗大的原因不止是生成变异体多，而是因为运行时间长：每一个变异体都要运行整个测试套件，生成的变异体多，测试套件中的测试用例也多，所以所有变异体运行测试套件的时间就长了。）</li>
+<li>因为变异测试时间长，所以没有自动化工具，变异测试将是很困难的。</li>
+<li>每个变异体都要运行和原版程序同样数量的测试用例，以比较输出结果。所以，这将导致大量的变异体需要测试原版的测试套件。</li>
+<li>因为变异测试的方法涉及到了代码的修改，所以不能再应用<a href="https://www.guru99.com/black-box-testing.html" target="_blank" rel="noopener">黑盒测试</a>方法了。</li>
+</ul>
+<p><em>On the other side, the following are the disadvantages of Mutant testing:</em></p>
 <ul>
 <li><em>Mutation testing is extremely costly and time-consuming since there are many mutant programs that need to be generated.</em></li>
 <li><em>Since its time consuming, it’s fair to say that this testing cannot be done without an automation tool.</em></li>
@@ -327,7 +350,8 @@
 <li><em>As this method involves source code changes, it is not at all applicable for <a href="https://www.guru99.com/black-box-testing.html" target="_blank" rel="noopener">Black Box Testing</a>.</em></li>
 </ul>
 <hr>
-<h4 id="结论：-Conclusion"><a href="#结论：-Conclusion" class="headerlink" title="结论： (Conclusion:)"></a><strong>结论： (Conclusion:)</strong></h4><p><em>Do you want exhaustive testing of your application? The answer is Mutation testing. It is the most comprehensive technique to test a program. This is the method which checks for the effectiveness and accuracy of a testing program to detect the faults or errors in the system.</em></p>
+<h4 id="结论：-Conclusion"><a href="#结论：-Conclusion" class="headerlink" title="结论： (Conclusion:)"></a><strong>结论： (Conclusion:)</strong></h4><p>您想完整的测试您的应用吗？变异测试就可以做到这点。变异测试做为测试一个程序最全面的技术，可以检测出系统的故障和错误，检查程序的有效性和准确性。</p>
+<p><em>Do you want exhaustive testing of your application? The answer is Mutation testing. It is the most comprehensive technique to test a program. This is the method which checks for the effectiveness and accuracy of a testing program to detect the faults or errors in the system.</em></p>
 <hr>
 <blockquote>
 <p>源英文网站：<a href="https://www.guru99.com/mutation-testing.html" target="_blank" rel="noopener">Mutation Testing in Software Testing: Mutant Score &amp; Analysis Example</a><br>参考网站：<a href="https://www.tutorialspoint.com/software_testing_dictionary/mutation_testing.htm" target="_blank" rel="noopener">https://www.tutorialspoint.com/software_testing_dictionary/mutation_testing.htm</a></p>
@@ -340,7 +364,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-02-04T18:41:54.157Z" itemprop="dateUpdated">2020-02-05 02:41:54</time>
+    最后更新时间：<time datetime="2020-02-05T16:42:41.233Z" itemprop="dateUpdated">2020-02-06 00:42:41</time>
 </span><br>
 
 
